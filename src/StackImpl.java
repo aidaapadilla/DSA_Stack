@@ -12,6 +12,7 @@ public class StackImpl<E> implements Stack<E> {
 
         if (this.p < data.length) {
             this.data[this.p++] = e;
+            System.out.println("Se ha introducido un elemento a la pila."+"\n");
         }
         else {
             throw new FullStackException();
@@ -24,7 +25,8 @@ public class StackImpl<E> implements Stack<E> {
         else
         {
             this.data[this.p]=null;
-            p=p-1;
+            p = p - 1;
+            System.out.println("Se ha quitado el último elemento de la pila."+"\n");
         }
         return null;
     }
@@ -32,6 +34,7 @@ public class StackImpl<E> implements Stack<E> {
     @Override
     public int size() throws NullSize {
         if (this.p > 0) {
+            System.out.println("Elementos que contiene la pila: " + p + "\n"+ "\n");
             return p;
         } else {
             throw new NullSize();
