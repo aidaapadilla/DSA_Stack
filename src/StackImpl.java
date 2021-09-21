@@ -1,6 +1,6 @@
 public class StackImpl<E> implements Stack<E> {
     E[] data;
-    private int p = 0;
+    private int p;
 
     public StackImpl(int len)
     {
@@ -23,17 +23,18 @@ public class StackImpl<E> implements Stack<E> {
         if (this.p==0) throw new EmptyStackException();
         else
         {
-            this.data[this.p++]=null;
+            this.data[this.p]=null;
             p=p-1;
         }
         return null;
     }
 
     @Override
-    public int size() {
-        if (this.p==0) throw new NullSize();
-        else {
+    public int size() throws NullSize {
+        if (this.p > 0) {
             return p;
+        } else {
+            throw new NullSize();
         }
     }
 }
